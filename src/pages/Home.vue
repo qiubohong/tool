@@ -14,7 +14,7 @@ const goToLink = (path: string) => {
     <!-- 基于 Antd vue 生成九宫格 -->
     <a-row :gutter="[16, 16]" style="padding:30px">
         <a-col :span="8" :key="item.key" v-for="item in ToolList" :xs="24" :sm="12" :md="8" :lg="6">
-            <a-card hoverable  @click="goToLink(item.path)">
+            <a-card hoverable @click="goToLink(item.path)">
                 <template #actions>
                     <a-button @click="goToLink(item.path)">
                         <template #icon>
@@ -23,9 +23,11 @@ const goToLink = (path: string) => {
                         前往访问
                     </a-button>
                 </template>
-                <a-card-meta :title="item.title" >
+                <a-card-meta :title="item.title">
                     <template #description>
-                        <div style="height: 4em;">{{  item.description }}</div>
+                        <div
+                            style="height: 4.8em; line-height:1.2em;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical;">
+                            {{ item.description }}</div>
                     </template>
                 </a-card-meta>
             </a-card>
