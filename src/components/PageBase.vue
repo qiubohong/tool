@@ -18,6 +18,12 @@ const currentInfo = computed(() => {
 
 onMounted(() => {
     document.title = currentInfo.value.title as any
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            backIndex()
+        }
+    }, { once: true })
 })
 
 onUnmounted(() => {
